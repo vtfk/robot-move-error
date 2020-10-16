@@ -1,0 +1,15 @@
+{
+  "name": "robot-move-error",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [],
+  "author": "Rune Moskvil Lyngås <rune.moskvil.lyngaas@vtfk.no> (https://github.com/runely)",
+  "license": "MIT",
+  "dependencies": {
+    "dotenv": "8.2.0"
+  }
+}
