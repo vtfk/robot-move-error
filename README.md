@@ -18,12 +18,14 @@ npm install
 
 ## Usage
 
-Set error path and queue path. Default retry count from .env will be used
 ```javascript
-node index.js ./test/error ./test/jobs
+node index.js --errorPath=./test/error --queuePath=./test/jobs --service=whatever --retryCount=5
 ```
 
-Set error path, queue path and retry count.
-```javascript
-node index.js ./test/error ./test/jobs 5
-```
+### Required arguments
+* errorPath
+* queuePath
+* service
+
+### If any of these arguments are omitted, defaults from *.env* is used:
+* retryCount
