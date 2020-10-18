@@ -1,4 +1,4 @@
-# robot-mvoe-error
+# robot-move-error
 
 Move errors back into queue a given number of times
 
@@ -8,7 +8,7 @@ Create/Update *.env* with correct settings
 
 ```javascript
 RETRY_COUNT=3
-MS_TEAMS_WEBHOOK=url-to-webhook
+MS_TEAMS_WEBHOOK=url-to-webhook-or-empty-if-not-used
 ```
 
 ### Install dependencies
