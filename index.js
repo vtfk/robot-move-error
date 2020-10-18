@@ -9,7 +9,6 @@ const moveFiles = require('./lib/move-files');
 let args = yargs(process.argv.slice(2)).argv;
 if (args.retryCount === undefined || args.retryCount < 0) args.retryCount = Number.parseInt(process.env.RETRY_COUNT);
 if (args.msTeamsWebHook === undefined && process.env.MS_TEAMS_WEBHOOK) args.msTeamsWebHook = process.env.MS_TEAMS_WEBHOOK;
-
 if (args.msTeamsWebHook) args.sendNotification = true;
 
 // check for required arguments
