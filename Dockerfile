@@ -15,4 +15,4 @@ WORKDIR /src
 RUN npm install --production
 
 # Startup
-ENTRYPOINT npm start
+ENTRYPOINT npm start --errorPath=$ERRORPATH --queuePath=$QUEUEPATH --service=$SERVICE
