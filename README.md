@@ -43,5 +43,5 @@ SERVICE=
 
 Add this to Dockerfile
 ```javascript
-ENTRYPOINT npm start --errorPath=$ERRORPATH --queuePath=$QUEUEPATH --service=$SERVICE
+ENTRYPOINT node index.js --errorPath=$ERRORPATH --queuePath=$QUEUEPATH --service=$SERVICE
 ```
