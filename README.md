@@ -31,3 +31,17 @@ node index.js --errorPath=./test/error --queuePath=./test/jobs --service=whateve
 ### If any of these arguments are omitted, defaults from *.env* is used:
 * retryCount
 * msTeamsWebHook
+
+## Docker
+
+Add these to *.env*
+```javascript
+ERRORPATH=
+QUEUEPATH=
+SERVICE=
+```
+
+Add this to Dockerfile
+```javascript
+ENTRYPOINT npm start --errorPath=$ERRORPATH --queuePath=$QUEUEPATH --service=$SERVICE
+```
