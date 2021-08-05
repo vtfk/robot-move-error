@@ -1,18 +1,10 @@
-require('dotenv').config();
-
 const yargs = require('yargs/yargs');
 const { logger } = require('@vtfk/logger');
 
+const getArgs = require('./lib/get-args')
 const moveFiles = require('./lib/move-files');
 
-// get arguments as an object
-let args = yargs(process.argv.slice(2)).argv;
-if (args.retryCount === undefined || args.retryCount < 0) args.retryCount = Number.parseInt(process.env.RETRY_COUNT);
-if (args.msTeamsWebHook === undefined && process.env.MS_TEAMS_WEBHOOK) args.msTeamsWebHook = process.env.MS_TEAMS_WEBHOOK;
-if (args.msTeamsWebHook) args.sendNotification = true;
-
-// add possibility to silence error notifications
-args.silenceErrorNotification = (process.env.SILENT_ERRORS ? (process.env.SILENT_ERRORS === 'false' ? false : true) : false);
+const args = getArgs(yargs(process.argv.slice(2)).argv)
 
 // check for required arguments
 if (!args.errorPath || !args.queuePath || !args.service) {
