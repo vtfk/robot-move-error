@@ -4,7 +4,8 @@
   "description": "Retry errors up to a defined limit",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
+    "test": "standard",
+    "standard:fix": "standard --fix",
     "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
     "start": "node index.js"
   },
@@ -16,5 +17,8 @@
     "axios": "0.21.1",
     "dotenv": "10.0.0",
     "yargs": "17.1.0"
+  },
+  "devDependencies": {
+    "standard": "16.0.3"
   }
 }
