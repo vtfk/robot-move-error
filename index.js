@@ -1,24 +1,23 @@
-const yargs = require('yargs/yargs')
-const { logger, logConfig } = require('@vtfk/logger')
+(async () => {
+  const yargs = require('yargs/yargs')
+  const { logger, logConfig } = require('@vtfk/logger')
 
-const getArgs = require('./lib/get-args')
-const moveFiles = require('./lib/move-files')
+  const getArgs = require('./lib/get-args')
+  const moveFiles = require('./lib/move-files')
 
-const args = getArgs(yargs(process.argv.slice(2)).argv)
+  const args = getArgs(yargs(process.argv.slice(2)).argv)
 
-// check for required arguments
-if (!args.errorPath || !args.queuePath || !args.service) {
-  logger('error', [args.service, 'Required arguments are missing. Check out the readme!'])
-  process.exit(1)
-}
+  // check for required arguments
+  if (!args.errorPath || !args.queuePath || !args.service) {
+    logger('error', [args.service, 'Required arguments are missing. Check out the readme!'])
+    process.exit(1)
+  }
 
-logConfig({
-  prefix: args.service
-})
+  logConfig({
+    prefix: args.service
+  })
 
-logger('info', ['index', 'start'])
-
-// move files from errorPath to queuePath taking retryCount into account
-moveFiles(args)
-  .then(() => logger('info', ['index', 'finished']))
-  .catch(err => logger('err', ['index', 'finished', err]))
+  logger('info', ['index', 'start'])
+  await moveFiles(args)
+  logger('info', ['index', 'finished'])
+})()
