@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "refresh": "rm -rf node_modules && rm package-lock.json && npm i"
+    "refresh": "rm -rf node_modules && rm package-lock.json && npm i",
+    "start": "node index.js"
   },
   "keywords": [],
   "author": "Rune Moskvil Lyngås <rune.moskvil.lyngaas@vtfk.no> (https://github.com/runely)",
