@@ -1,5 +1,5 @@
 const yargs = require('yargs/yargs');
-const { logger } = require('@vtfk/logger');
+const { logger, logConfig } = require('@vtfk/logger');
 
 const getArgs = require('./lib/get-args')
 const moveFiles = require('./lib/move-files');
@@ -12,9 +12,13 @@ if (!args.errorPath || !args.queuePath || !args.service) {
     return;
 }
 
-logger('info', [args.service, 'index', 'start']);
+logConfig({
+    prefix: args.service
+})
+
+logger('info', ['index', 'start']);
 
 // move files from errorPath to queuePath taking retryCount into account
 moveFiles(args)
-    .then(() => logger('info', [args.service, 'index', 'finished']))
-    .catch(err => logger('err', [args.service, 'index', 'finished', err]));
+    .then(() => logger('info', ['index', 'finished']))
+    .catch(err => logger('err', ['index', 'finished', err]));
