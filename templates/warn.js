@@ -1,8 +1,10 @@
-module.exports = (args, fileName, content) => {
+const prettifyDate = require('../lib/prettify-date')
+
+module.exports = (args, fileName, content, nextRetryPT, nextRetryDT) => {
   return {
     level: 'warn',
     summary: 'Job failed, will retry',
-    text: '**Job failed, will retry**',
+    text: `**Job failed, will retry in ${nextRetryPT} @ ${prettifyDate(new Date(nextRetryDT))}**`,
     sections: [
       {
         facts: [
@@ -19,8 +21,8 @@ module.exports = (args, fileName, content) => {
             value: fileName
           },
           {
-            name: 'Job retried times:',
-            value: content.retryCount
+            name: 'Job retry timestamps:',
+            value: JSON.stringify(content.retries.map(retry => prettifyDate(new Date(retry.timestamp))), null, 2)
           },
           {
             name: 'Last error:',

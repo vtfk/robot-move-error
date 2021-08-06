@@ -6,8 +6,15 @@ Move errors back into queue a given number of times
 
 Create/Update `.env` with correct settings
 
+Add equal `RETRY_COUNT_n` settings as `RETRY_COUNT` is set to
+
+`RETRY_COUNT_n` must be set in [ISO8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+
 ```javascript
 RETRY_COUNT=3
+RETRY_COUNT_1=PT1H
+RETRY_COUNT_2=PT2H30M
+RETRY_COUNT_3=P1D
 MS_TEAMS_WEBHOOK=url-to-webhook-or-empty-if-not-used
 SILENT_ERRORS=true
 ERROR_PATH=../test/error
@@ -31,9 +38,16 @@ node index.js --errorPath=../test/error --queuePath=../test/jobs --service=whate
 
 ## Docker
 
-Add these to `.env`
+Add equal `RETRY_COUNT_n` settings as `RETRY_COUNT` is set to
+
+`RETRY_COUNT_n` must be set in [ISO8601 duration format](https://en.wikipedia.org/wiki/ISO_8601#Durations)
+
+### Add these to `.env`
 ```javascript
-RETRY_COUNT=
+RETRY_COUNT=3
+RETRY_COUNT_1=PT1H
+RETRY_COUNT_2=PT2H30M
+RETRY_COUNT_3=P1D
 MS_TEAMS_WEBHOOK=
 SILENT_ERRORS=
 ERROR_PATH=
@@ -41,7 +55,8 @@ QUEUE_PATH=
 SERVICE=
 ```
 
-Add this to Dockerfile
+### Add this to Dockerfile
+
 ```javascript
 ENTRYPOINT node index.js --errorPath=$ERROR_PATH --queuePath=$QUEUE_PATH --service=$SERVICE
 ```

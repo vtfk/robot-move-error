@@ -1,3 +1,5 @@
+const prettifyDate = require('../lib/prettify-date')
+
 module.exports = (args, fileName, content) => {
   return {
     level: 'error',
@@ -5,7 +7,7 @@ module.exports = (args, fileName, content) => {
     text: '**Retry count limit reached**',
     sections: [
       {
-        text: `Job has reached the maxium retry count of ${args.retryCount}`,
+        text: `Job has reached the maxium retry count of **${args.retryCount}** and will **NOT** be retried again.`,
         facts: [
           {
             name: 'Service:',
@@ -20,8 +22,8 @@ module.exports = (args, fileName, content) => {
             value: fileName
           },
           {
-            name: 'Job retried times:',
-            value: content.retryCount
+            name: 'Job retry timestamps:',
+            value: JSON.stringify(content.retries.map(retry => prettifyDate(new Date(retry.timestamp))), null, 2)
           },
           {
             name: 'Last error:',
