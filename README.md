@@ -16,7 +16,6 @@ RETRY_COUNT_1=PT1H
 RETRY_COUNT_2=PT2H30M
 RETRY_COUNT_3=P1D
 MS_TEAMS_WEBHOOK=url-to-webhook-or-empty-if-not-used
-SILENT_ERRORS=true
 ERROR_PATH=../test/error
 QUEUE_PATH=../test/jobs
 SERVICE=test
@@ -33,7 +32,7 @@ npm install
 All arguments are optional. Argument(s) omitted will use the default from `.env`
 
 ```javascript
-node index.js --errorPath=../test/error --queuePath=../test/jobs --service=whatever --retryCount=5 --msTeamsWebHook=url-to-hook --silentErrors=false
+node index.js --errorPath=../test/error --queuePath=../test/jobs --service=whatever --retryCount=5 --msTeamsWebHook=url-to-hook
 ```
 
 ## Docker
@@ -49,7 +48,6 @@ RETRY_COUNT_1=PT1H
 RETRY_COUNT_2=PT2H30M
 RETRY_COUNT_3=P1D
 MS_TEAMS_WEBHOOK=
-SILENT_ERRORS=
 ERROR_PATH=
 QUEUE_PATH=
 SERVICE=
