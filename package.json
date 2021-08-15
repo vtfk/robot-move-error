@@ -1,6 +1,6 @@
 {
   "name": "robot-move-error",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Retry errors up to a defined limit",
   "main": "index.js",
   "scripts": {
