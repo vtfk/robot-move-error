@@ -17,6 +17,12 @@
     prefix: args.service
   })
 
+  // don't start if retryCount is less than, equal to 0 or undefined
+  if (args.retryCount === undefined || args.retryCount <= 0) {
+    logger('warn', ['index', 'retry not enabled for this service', 'exiting...'])
+    process.exit(0)
+  }
+
   logger('info', ['index', 'start'])
   await moveFiles(args)
   logger('info', ['index', 'finished'])

@@ -35,6 +35,10 @@ All arguments are optional. Argument(s) omitted will use the default from `.env`
 node index.js --errorPath=../test/error --queuePath=../test/jobs --service=whatever --retryCount=5 --msTeamsWebHook=url-to-hook
 ```
 
+### Disable retry
+
+If you want to disable retry for a service, set `RETRY_COUNT` to 0
+
 ## Docker
 
 Add equal `RETRY_COUNT_n` settings as `RETRY_COUNT` is set to
