@@ -20,6 +20,6 @@
     "yargs": "17.1.1"
   },
   "devDependencies": {
-    "standard": "16.0.3"
+    "standard": "16.0.4"
   }
 }
