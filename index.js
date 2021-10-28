@@ -26,4 +26,5 @@
   logger('info', ['index', 'start'])
   await moveFiles(args)
   logger('info', ['index', 'finished'])
+  process.exit(0)
 })()
