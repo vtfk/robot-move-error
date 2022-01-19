@@ -1,4 +1,4 @@
-FROM node:16.6.1-alpine
+FROM node:16.13.2-alpine
 
 #### Begin setup ####
 
