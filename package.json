@@ -13,7 +13,7 @@
   "author": "Rune Moskvil Lyngås <rune.moskvil.lyngaas@vtfk.no> (https://github.com/runely)",
   "license": "MIT",
   "dependencies": {
-    "@vtfk/logger": "4.1.2",
+    "@vtfk/logger": "4.3.2",
     "dotenv": "15.0.1",
     "axios": "0.25.0",
     "iso8601-duration": "1.3.0",
